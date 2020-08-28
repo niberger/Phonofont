@@ -1,4 +1,4 @@
-name: Phonofont build
+name: Phonofonte build
 
 on: [push]
 
@@ -16,7 +16,7 @@ jobs:
       - name: Test FontForge python binding
         run: python3 -c "import fontforge;print(fontforge)"
       - name: Run Phonofont
-        run: python3 ./src/phonofont.py
+        run: python3 ./src/phonofonte.py
       - name: Upload created fonts
         uses: actions/upload-artifact@v2
         with:

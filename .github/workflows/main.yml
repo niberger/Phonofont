@@ -7,18 +7,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+        
+      #note: the python3 version of the system is used to work with fontforge package 
       - name: Install python dependencies
         run: pip install -r requirements.txt
       - name: Install FontForge
         run: sudo apt-get install python3-fontforge
       - name: Test FontForge python binding
-        run: /usr/bin/python3 -c "import fontforge;print(fontforge)"
+        run: python3 -c "import fontforge;print(fontforge)"
       - name: Run Phonofont
-        run: /usr/bin/python3 ./src/phonofont.py
+        run: python3 ./src/phonofont.py
       - name: Zip created fonts
         run: zip artifact.zip artifact
       - name: Upload created fonts

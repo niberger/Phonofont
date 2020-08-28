@@ -1,3 +1,4 @@
+name: Phonofont build
 
 on: [push]
 
@@ -10,8 +11,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install dependencies
+      - name: Install python dependencies
         run: pip install -r requirements.txt
+      - name: Install FontForge
+        run: apt-get install fontforge
       - name: Run Phonofont
         run: python ./src/phonofont.py
       - name: Zip created fonts

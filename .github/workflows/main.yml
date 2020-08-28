@@ -10,7 +10,7 @@ jobs:
         
       #note: the python3 version of the system is used to work with fontforge package 
       - name: Install python dependencies
-        run: pip install -r requirements.txt
+        run: python3 -m pip install -r requirements.txt
       - name: Install FontForge
         run: sudo apt-get install python3-fontforge
       - name: Test FontForge python binding

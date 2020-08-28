@@ -14,9 +14,7 @@ jobs:
       - name: Install python dependencies
         run: pip install -r requirements.txt
       - name: Install FontForge
-        uses: ryankurte/action-apt@v0.1.0
-        with: 
-          packages: fontforge
+        run: sudo apt-get install fontforge
       - name: Run Phonofont
         run: python ./src/phonofont.py
       - name: Zip created fonts

@@ -18,7 +18,7 @@ jobs:
       - name: Test FontForge python binding
         run: /usr/bin/python3 -c "import fontforge;print(fontforge)"
       - name: Run Phonofont
-        run: python3 ./src/phonofont.py
+        run: /usr/bin/python3 ./src/phonofont.py
       - name: Zip created fonts
         run: zip artifact.zip artifact
       - name: Upload created fonts

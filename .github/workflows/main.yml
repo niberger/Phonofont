@@ -16,7 +16,7 @@ jobs:
       - name: Test FontForge python binding
         run: python3 -c "import fontforge;print(fontforge)"
       - name: Run Phonofont
-        run: python3 ./src/phonofonte.py ../fonts/AndikaNewBasic-R.ttf
+        run: python3 ./src/phonofonte.py ./fonts/Andika/AndikaNewBasic-R.ttf
       - name: Upload created fonts
         uses: actions/upload-artifact@v2
         with:

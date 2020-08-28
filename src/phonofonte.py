@@ -21,6 +21,9 @@ def get_argparser(ArgumentParser=argparse.ArgumentParser):
     parser.add_argument('target_fonts', help='font files to patch', metavar='font',
                         nargs='*', type=argparse.FileType('rb'))
     return parser
+    
+def out_path(name):
+    return 'out/{0}.ttf'.format(name)
 
 def patch_one_font(font):
     font.encoding = 'ISO10646'
@@ -76,7 +79,6 @@ feature calt {
     out_name = font.fullname.replace('Source ', 'Sauce ')
     ft_font.save(out_path(out_name))
     print("> Created '{}'".format(out_name))
-
     return out_name
 
 def patch_fonts(target_files):

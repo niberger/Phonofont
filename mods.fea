@@ -1,0 +1,22 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+feature calt {
+    sub b r by seven;
+    sub seven by uni1E07 uni1E5F;
+
+    sub B r by six;
+    sub six by uni1E06 uni1E5F;
+
+#    sub d r by  d_r;
+#    sub d_r by uni1E0F uni1E5F;
+#
+#    sub D r by D_r;
+#    sub D_r by uni1E0E uni1E5F;
+#
+#    sub t r by t_r;
+#    sub t_r by uni1E6F uni1E5F;
+#
+#    sub T r by T_r;
+#    sub T_r by uni1E6E uni1E5F;
+} calt;

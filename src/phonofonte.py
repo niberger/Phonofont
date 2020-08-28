@@ -23,7 +23,8 @@ def get_argparser(ArgumentParser=argparse.ArgumentParser):
     return parser
     
 def out_path(name):
-    return 'out/{0}.ttf'.format(name)
+    Path('artifact').mkdir(parents=True, exist_ok=True)
+    return 'artifact/{0}.ttf'.format(name)
 
 def patch_one_font(font):
     font.encoding = 'ISO10646'
@@ -71,9 +72,9 @@ feature calt {
     with open('mods.fea', 'w') as f:
         f.write(feature)
 
-    Path('out').mkdir(parents=True, exist_ok=True)
-    font.generate('out/tmp.ttf')
-    ft_font = TTFont('out/tmp.ttf')
+    Path('tmp').mkdir(parents=True, exist_ok=True)
+    font.generate('tmp/tmp.ttf')
+    ft_font = TTFont('tmp/tmp.ttf')
     addOpenTypeFeatures(ft_font, 'mods.fea', tables=['GSUB'])
     # replacement to comply with SIL Open Font License
     out_name = font.fullname.replace('Source ', 'Sauce ')

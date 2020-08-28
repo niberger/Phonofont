@@ -1,0 +1,24 @@
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Phonofont
+        run: python ./src/phonofont.py
+      - name: Zip created fonts
+        run: zip artifact.zip artifact
+      - name: Upload created fonts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifact
+          path: artifact.zip
+
